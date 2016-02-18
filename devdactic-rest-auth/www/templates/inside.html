@@ -1,0 +1,37 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-positive">
+        <h1 class="title">Member area</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="logout()">Logout</button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="padding" ng-show="isUserLogged">
+        <div class="card">
+            <div class="item item-text-wrap" >
+                {{memberinfo}}
+                <!--{{user}}-->
+                {{user.ObjectId}}
+            </div>
+        </div>
+
+        <div class ="row">
+            <div class="col col-50">
+                <H1 data-ng-init="getInfo()">Thready</H1>
+                <p ng-repeat="thread in threads"><label class="item"  ng-click="click(thread._id)">{{thread.title}}</label></p></div>
+            <div class="col col-50">
+                <H1>New Thread  </h1>
+                <label class="item item-input">
+                    <input type="text" placeholder="Tittle" ng-model="title">
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Text" ng-model="text">
+                </label>
+                <label class="item submit">
+                <button ng-click="save(title, text, user._id)">Save Thread</button>
+                </label>    
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>
